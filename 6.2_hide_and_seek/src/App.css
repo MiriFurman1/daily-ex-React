@@ -17,9 +17,8 @@
 .container{
   width:600px;
   height:700px;
+  border: 1px black solid;
 }
-
-
 
 .box{
   width:400px;

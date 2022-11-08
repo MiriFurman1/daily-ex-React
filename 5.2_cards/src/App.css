@@ -14,19 +14,6 @@
   }
 }
 
-.container{
-  width:600px;
-  height:700px;
-}
-
-
-
-.box{
-  width:400px;
-  height:400px;
-  background-color: yellow;
-}
-
 .App-header {
   min-height: 100vh;
   display: flex;

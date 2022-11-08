@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import React, {useState} from 'react'
 import './App.css';
+import data from './data'
+
+
+
+function Returnnames (){
+return( data.map(x=>x.name
+))
+}
+
+function Beforenineties(){
+  return(data.filter(x=>x.birthday.slice(-4)<"1990"))
+}
+
+
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          click me
-        </a>
-      </header>
+    
+      
     </div>
   );
 }

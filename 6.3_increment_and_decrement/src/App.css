@@ -19,7 +19,15 @@
   height:700px;
 }
 
-
+.negative{
+  color: red;
+}
+.positive{
+  color:green;
+}
+.zero{
+  color:black;
+}
 
 .box{
   width:400px;
