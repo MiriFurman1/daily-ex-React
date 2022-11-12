@@ -1,15 +1,11 @@
-import React, {useRef} from 'react'
+import React, { useState } from 'react';
 import './App.css';
-
-
-
-
 
 function App() {
 
 
   return (
-    <div className="App">
+    <div className='App'>
 
     </div>
   );

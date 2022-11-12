@@ -14,10 +14,6 @@
   }
 }
 
-
-
-
-
 .App-header {
   min-height: 100vh;
   display: flex;
@@ -39,4 +35,31 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.names {
+  padding: 3rem;
+  flex-direction: column;
+  background-color: lightblue;
+}
+.names div {
+  justify-content: space-between;
+  display: flex;
+}
+
+.cards {
+  padding: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem;
+}
+.card {
+  background-color: lightcoral;
+  margin: 1rem;
+  padding: 1rem;
+  text-align: left;
+}
+ul {
+  text-align: left;
 }
