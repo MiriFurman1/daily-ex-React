@@ -1,0 +1,20 @@
+
+
+@keyframes slide{
+    from {
+        transform: translateX(0%);
+      }
+    
+      to {
+        transform: translateX(100%);
+      }
+}
+
+.box{
+    position: absolute;
+    animation-name: slide;
+    animation-duration: 5s;
+    width:200px;
+    height:200px;
+    background-color: blanchedalmond;
+}

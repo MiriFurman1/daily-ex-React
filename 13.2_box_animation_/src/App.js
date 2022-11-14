@@ -1,7 +1,7 @@
-import { useState,useEffect  } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
-
-
+import './Box.css'
+import Box from './Box'
 
 
 
@@ -9,10 +9,10 @@ import './App.css';
 
 function App() {
 
-
   return (
     <div className='App'>
-    </div>
+      <Box/>
+      </div>
   );
 }
 
