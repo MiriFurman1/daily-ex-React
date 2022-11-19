@@ -1,72 +1,48 @@
-import { useState,useEffect  } from 'react';
-import './App.css';
 import axios from 'axios';
-
-
-
-
+import { useEffect, useState } from 'react';
+import Avatars from './Avatars';
 
 function App() {
-  // const [title,setTitle]=useState([])
-  // const [firstName,setFirstName]=useState([])
-  // const [lastName,setLastName]=useState([])
-  // const [Image,setImage]=useState([])
-  
-  const[users,setUsers]=useState("")
-  const[searchValue,setSearchValue]=useState("")
-  
+  const [avatarsArr, setAvatarsArr] = useState(null);
+  const [inputValue, setInputValue] = useState('');
 
-useEffect(()=>{
-  const fetchData = async () => {
-    const { data } = await axios.get('https://randomuser.me/api/?results=10');
-    setUsers(data.results)
 
+  const destructData = (data) => {
+    return data.map((avatar) => {
+      return { name: `${avatar.name.first} ${avatar.name.last}`, img: avatar.picture.large };
+    });
   };
-  fetchData();
 
-},[])
+  useEffect(() => {
+    axios
+      .get('https://randomuser.me/api/?results=10')
+      .then(({ data }) => {
+        setAvatarsArr(destructData(data.results));
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, []);
 
-function handleChange(e){
-      setSearchValue(e.target.value);
-}
-
-function searchHandler(){
-  if(searchValue){
-    users.filter((user)=>{
-      return user.name.contains(searchValue)
-    })
-    console.log(users);
-  }
-}
+  const handleInput = (event) => {
+    setInputValue(event.target.value);
+  };
 
   return (
-    <div className='App'>
-    
-
-      <form>
-        <label> filter by name</label>
-        <input type="text" onChange={handleChange}></input> 
-        <button onClick={searchHandler}> submit</button>
-      </form>
-
-<div className='users'>
-
-
-{users&&users.map((user)=>{
-        return (<div className='card'>
-        <h3>{user.name["title"]} </h3>
-        <h3>{user.name["first"]} {user.name["last"]}</h3>
-        <img alt="" src={user.picture["large"]}></img>
-        </div>
-        )})}
-</div>
-      
+    <div>
+      <input value={inputValue} onChange={handleInput} />
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: `repeat(auto-fit, minmax(220px, 1fr))`,
+          gap: `1rem`,
+          marginBottom: '1rem',
+        }}
+      >
+        {avatarsArr && <Avatars avatarsArr={avatarsArr} inputValue={inputValue} />}
+      </div>
     </div>
   );
 }
 
-
 export default App;
-
-
-
